@@ -26,7 +26,7 @@ int CalcPow(int num, int pownum)
 
 //___ПРОГРАММА___
 
-int num = ReadData("Введите число:");
-int pownum = ReadData("Введите степень числа:");
-CalcPow(num, pownum);
-PrintResult(res);
+int num = ReadData("Введите число: ");
+int pownum = ReadData("Введите степень числа: ");
+int res = CalcPow(num, pownum);
+PrintResult($"Число {num} в степени {pownum} = {res}");
