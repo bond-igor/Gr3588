@@ -3,29 +3,50 @@
 //___МЕТОДЫ___
 
 //запрос данных у пользователя
-string ReadData(string msg)
+int ReadData(string msg)
 {
     //выводим сообщение
     Console.WriteLine(msg);
     //считываем число
-    return Console.ReadLine() ?? "0";//возвращаем значение
-  }
-
-// Метод вывода результата
-void PrintResult(string arr)
-{
-   Console.WriteLine(arr);
+    return int.Parse(Console.ReadLine() ?? "0");//возвращаем значение
 }
 
-//Метод преобразовывает строку в массив
-string Array(string num)
+// Метод вывода результата
+void PrintData(string res, int[] arr)
 {
-    string [] arr = num.Split(",");
+    Console.WriteLine(res);
+    PrintArr(arr);
+}
+
+//Метод создает массив в заданном диапазоне
+int[] GenArr(int num1, int num2)
+{
+    Random rnd = new Random();
+    int[] arr = new int[8];
+    for (int i = 0; i < arr.Length; i++)
+    {
+        arr[i] = rnd.Next(num1, num2);
+    }
     return arr;
 }
 
+//Метод добавляет [] и запятые
+void PrintArr(int[] arr)
+{
+    Console.Write("[");
+    for (int i = 0; i < arr.Length-1; i++)
+    {
+        Console.Write(arr[i]+", ");
+    }
+    Console.WriteLine(arr[arr.Length-1]+"]");
+}
+
+
 //___ПРОГРАММА___
 
-string num = ReadData("Введите числа через запятую");
-string arr = Array(num);
-PrintResult("Массив чисел " +arr);
+int num1 = ReadData("Введите первое число диапазона.");
+int num2 = ReadData("Введите второе число диапазона.");
+
+int[] arr = GenArr(num1, num2);
+
+PrintData("Сгененрированный массив:",arr);
