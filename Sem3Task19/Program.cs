@@ -25,9 +25,7 @@ int ReadData(string msg)
 //Метод проверяет корректность введеного числа
 bool CorrectNum(int num)
 {
-    bool cornum = (num > 9999 && num < 100000);
-    
-    return cornum;
+    return (num > 9999 && num < 100000);
 }
 //Метод делает проверку является ли число палиндромом
 bool PalinTest(int num)
