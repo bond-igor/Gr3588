@@ -7,6 +7,13 @@ int ReadData(string line)
     return number;
 }
 
+// Метод выводит на печать сообщение
+void PrintData(string msg)
+{
+    Console.WriteLine(msg);
+}
+
+
 // Метод выводит на печать созданный массив
 void Print2DArrayColor(int[,] matrix)
 {
@@ -73,7 +80,9 @@ int[,] Snail2DArray(int countRow, int countColumn)
 Console.WriteLine();
 int row = ReadData("Введите количество строк ");                                 // Пользователь вводит количество строк
 int column = ReadData("Введите количество столбцов ");                           // Пользователь вводит количество столбцов
+DateTime d = DateTime.Now;
 int[,] matrix = Snail2DArray(row, column);
+PrintData("Скорость заполнения:  " + (DateTime.Now - d));
 Console.WriteLine();
 Print2DArrayColor(matrix);
 Console.WriteLine();
